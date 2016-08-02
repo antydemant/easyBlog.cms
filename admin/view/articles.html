@@ -1,0 +1,14 @@
+<div class="post">
+    <p class="meta"><span class="date"><?php echo date("d.m.y", $row['pub_date']); ?></span>
+    <?php echo date("H:i", $row['pub_date']); ?> 
+    Posted by <a href="#"><?php echo $row['name']; ?></a></p>
+    <h2 class="title">
+    <a href="#"><?php echo $row['title']; ?></a>
+    </h2>
+        <div class="entry">
+            <p><?php echo $row['pub_text']; ?></p>
+            <p align="center" ><a href="admin.php?route=edit&id=<?php echo $row['id']; ?>">Редагувати публікацію</a> </p>
+            <p align="center" ><a href="admin.php?route=del&id=<?php echo $row['id']; ?>">Видалити публікацію</a> </p>
+        </div>
+    
+</div>

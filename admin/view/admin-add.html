@@ -1,0 +1,29 @@
+<div class="post">
+        <p class="meta"><span class="date"><?php echo date("d.m.y", time()); ?></span>
+        <?php echo date("H:i", time()); ?> 
+        </p>
+        <form action="?route=admin_add" method="POST" >
+        <h2><?php if(isset($success)) echo $success; ?></h2>
+        <hr />
+        <h2 class="title">Ім'я Адміністратора</h2>
+        <p><?php if(isset($errors['admin_name'])) echo $errors['admin_name'] ;?></p>
+        <div class="entry">
+            <input type="text" name="admin_name" value=""/>
+        </div>
+        <h2 class="title">Логін Адміністратора</h2>
+        <p><?php if(isset($errors['admin_login'])) echo $errors['admin_login'] ;?></p>
+        <div class="entry">
+            <input type="text" name="admin_login" value=""/>
+        </div>
+        <h2 class="title">Пароль Адміністратора</h2>
+        <p><?php if(isset($errors['admin_password'])) echo $errors['admin_password'] ;?></p>
+        <div class="entry">
+            <input type="password" name="admin_password" value=""/>
+        </div><h2 class="title">Повторний пароль Адміністратора</h2>
+        <p><?php if(isset($errors['admin_password_confirm'])) echo $errors['admin_password_confirm'] ;?></p>
+        <div class="entry">
+            <input type="password" name="admin_password_confirm" value=""/>
+            <input type="submit" name="Створити Адміністратора"/>
+        </div>
+        </form>
+    </div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Установка easyBlog.CMS</title>
+	<link rel="stylesheet" type="text/css" href="/style/style.css" />
+</head>
+<body>
+		<form id="slick-login" action="install.php" method="post">
+        <p id="green"><?php if($errors['mysql_connect']) echo $errors['mysql_connect']; ?></p>
+        <p id="green"><?php if($errors['mysql_create']) echo $errors['mysql_create']; ?></p>
+        <p id="green"><?php if($errors['mysql_select']) echo $errors['mysql_select']; ?></p>
+        <p id="green"><?php if($errors['mysql_create_news']) echo $errors['mysql_create_news']; ?></p>
+        <p id="green"><?php if($errors['mysql_create_users']) echo $errors['mysql_create_users']; ?></p>
+        <p id="green"><?php if($errors['mysql_insert_users']) echo $errors['mysql_insert_users']; ?></p>
+		<p>DataBase Host </p><p id="green">
+    <?php if (isset($errors['host']))echo $errors['host']; ?></p>
+    <input type="text" name="host" class="placeholder" placeholder="localhost" />
+    <p>DataBase User </p><p id="green">
+    <?php if (isset($errors['user'])) echo $errors['user']; ?></p>
+    <input type="text" name="user" class="placeholder" placeholder="root" />
+    <p>DataBase Password </p><p id="green">
+    <?php if (isset($errors['password'])) echo $errors['password']; ?></p>
+    <input type="password" name="password" class="placeholder" placeholder="AutoPasWorD" />
+    <hr />
+    <p>Admin Name </p><p id="green">
+    <?php if (isset($errors['admin_name'])) echo $errors['admin_name']; ?></p>
+    <input type="text" name="admin_name" class="placeholder" placeholder="Вован" />
+    <p>Admin Login </p><p id="green">
+    <?php if (isset($errors['admin_login'])) echo $errors['admin_login']; ?></p>
+    <input type="text" name="admin_login" class="placeholder" placeholder="Admin" />
+    <p>Admin Password </p><p id="green">
+    <?php if (isset($errors['admin_password'])) echo $errors['admin_password']; ?></p>
+    <input type="password" name="admin_password" class="placeholder" placeholder="AutoPassWorD" />
+    <p>Admin Password Confirm</p><p id="green">
+    <?php if (isset($errors['admin_password_confirm'])) echo $errors['admin_password_confirm']; ?></p>
+    <input type="password" name="admin_password_confirm" class="placeholder" placeholder="AutoPassWorD" />
+<input type="submit" value="Install!">
+<p id="green" align="center" >
+<?php if(isset($success)) echo $success; ?>
+</p>
+</form>
+</html>

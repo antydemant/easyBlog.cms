@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Вход Администратора easyBlog.CMS</title>
+	<link rel="stylesheet" type="text/css" href="/style/style.css" />
+</head>
+<body>
+		<form id="slick-login" action="/admin/admin.php" method="post">
+    <p>Admin Login </p><p id="green">
+    <?php if (isset($errors['admin_login'])) echo $errors['admin_login']; ?></p>
+    <input type="text" name="admin_login" class="placeholder" placeholder="Admin" />
+    <p>Admin Password </p><p id="green">
+    <?php if (isset($errors['admin_password'])) echo $errors['admin_password']; ?></p>
+    <input type="password" name="admin_password" class="placeholder" placeholder="AutoPassWorD" />
+<input type="submit" value="Войти">
+</form>
+</html>
