@@ -4,16 +4,19 @@
         </p>
         <form action="?route=add" method="POST" >
         <h2 class="title">Назва публікації</h2>
-        <p><?php if(isset($errors['title'])) echo $errors['title'] ;?></p>
+        <p><?php if (isset($errors['title']))
+    echo $errors['title']; ?></p>
         <div class="entry">
             <input type="text" name="title" value=""/>
         </div>
         <h2 class="title">Текст публікації</h2>
-        <p><?php if(isset($errors['text'])) echo $errors['text'] ;?></p>
+        <p><?php if (isset($errors['text']))
+    echo $errors['text']; ?></p>
         <div class="entry">
             <textarea name="text"></textarea>
             <input type="submit" value="Опублікувати">
-            <h2><?php if(isset($success)) echo $success; ?></h2>
+            <h2><?php if (isset($success))
+    echo $success; ?></h2>
         </div>
         
         </form>

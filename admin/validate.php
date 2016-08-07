@@ -1,8 +1,8 @@
 <?php
         $admin_login = htmlspecialchars(trim(substr($_POST['admin_login'], 0, 100)));
         $admin_password = md5(htmlspecialchars(trim(substr($_POST['admin_password'], 0, 100))));
-        $admin = getAdmin($_POST['admin_login']);
-        $admin_sess = getAdmin($_SESSION['admin_login']);
+        $admin = $MySQL->getAdmin($_POST['admin_login']);
+        $admin_sess = $MySQL->getAdmin($session->getSession('admin_login'));
         //var_dump($admin);
         function validate() {
             

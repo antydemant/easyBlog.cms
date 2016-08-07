@@ -3,13 +3,11 @@
     
     include_once __DIR__ . '/view/top-content.html';
     
-    $article = getOnePub($_GET['id']);
+    $articles = $MySQL->getArticles(null,$_GET['id']);
     
-        while ($row = mysql_fetch_assoc($article)) { 
-            
-                include __DIR__ ."/view/article.html";
-                
-        }
+    foreach($articles as $row) {
+        include __DIR__ . '/view/article.html';
+    }
 
     include_once __DIR__ . '/view/bottom-content.html';
     

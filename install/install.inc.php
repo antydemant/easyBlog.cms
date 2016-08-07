@@ -1,13 +1,14 @@
 <?php
-    if(!mysql_connect($host, $user, $password)) {
+    
+    if(!@mysql_connect($host, $user, $password)) {
         $errors['mysql_connect'] = 'Ошибка соединения с базой данных!';
     } //запиши помилки в масив! маст хев!!!!!!!
     $sql = 'CREATE DATABASE easyblog';
-    if(!mysql_query($sql)) {
+    if(!@mysql_query($sql)) {
         $errors['mysql_create'] = 'Ошибка создания базы!';
     }
 
-    if(!mysql_select_db('easyblog')) {
+    if(!@mysql_select_db('easyblog')) {
         $errors['mysql_select'] = 'Ошибка выбора базы!';
     }
     $sql = "
@@ -17,8 +18,7 @@
 	login varchar(50) NOT NULL UNIQUE,
     password varchar(50) NOT NULL default '',
 	PRIMARY KEY (id))";
-    //mysql_query($sql) or die("5 " . mysql_error());
-    if(!mysql_query($sql)) {
+    if(!@mysql_query($sql)) {
         $errors['mysql_create_users'] = 'Ошибка создания таблицы Users!';
     }
     $sql = "
@@ -29,14 +29,14 @@
 	pub_text TEXT,
     user_id int(2) NOT NULL default 1, 
 	PRIMARY KEY (id))";
-    if(!mysql_query($sql)) {
+    if(!@mysql_query($sql)) {
         $errors['mysql_create_news'] = 'Ошибка создания таблицы News!';
     }
     $sql = "
     INSERT INTO users (id, name, login, password) 
     VALUES (NULL, '" . $admin_name . "', '" . $admin_login . "', '" . $admin_password ."');";
     //mysql_query($sql) or die("6 " . mysql_error());
-    if(!mysql_query($sql)) {
+    if(!@mysql_query($sql)) {
         $errors['mysql_insert_users'] = 'Ошибка создания Администратора!';
     }
     else {

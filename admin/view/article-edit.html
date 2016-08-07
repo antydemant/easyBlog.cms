@@ -1,22 +1,26 @@
     
     <div class="post">
-        <p class="meta"><span class="date"><?php echo date("d.m.y", $row['pub_date']); ?></span>
-        <?php echo date("H:i", $row['pub_date']); ?> 
-        Опубліковано <a href="#"><?php echo $row['name']; ?></a></p>
-        <h2 class="title">ID публікації <?php echo $row['id'];?> </h2>
-        <form action="?route=edit&id=<?php echo $row['id'];?>" method="POST" >
-        <input type="hidden" name="pub_id" value="<?php echo $row['id'];?>" />
+        <p class="meta"><span class="date"><?php echo date("d.m.y", $row->
+getDate()); ?></span>
+        <?php echo date("H:i", $row->getDate()); ?> 
+        Опубліковано <a href="#"><?php echo $row->getUserName(); ?></a></p>
+        <h2 class="title">ID публікації <?php echo $row->getID(); ?> </h2>
+        <form action="?route=edit&id=<?php echo $row->getID(); ?>" method="POST" >
+        <input type="hidden" name="pub_id" value="<?php echo $row->getID(); ?>" />
         <h2 class="title">Назва публікації</h2>
-        <p><?php if(isset($errors['title'])) echo $errors['title'] ;?></p>
+        <p><?php if (isset($errors['title']))
+    echo $errors['title']; ?></p>
         <div class="entry">
-            <input type="text" name="title" value="<?php echo $row['title']; ?>"/>
+            <input type="text" name="title" value="<?php echo $row->getTitle(); ?>"/>
         </div>
         <h2 class="title">Текст публікації</h2>
-        <p><?php if(isset($errors['text'])) echo $errors['text'] ;?></p>
+        <p><?php if (isset($errors['text']))
+    echo $errors['text']; ?></p>
         <div class="entry">
-            <textarea name="text"><?php echo $row['pub_text'] ?></textarea>
+            <textarea name="text"><?php echo $row->getText(); ?></textarea>
             <input type="submit" value="Застосувати зміни">
-            <h2><?php if(isset($success)) echo $success; ?></h2>
+            <h2><?php if (isset($success))
+    echo $success; ?></h2>
         </div>
         
         </form>

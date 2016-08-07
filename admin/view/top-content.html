@@ -16,8 +16,9 @@
 				<li class="current_page_item"><a href="/index.php">Blog</a></li>
 				<li ><a href="/?route=admin" >Admin</a></li>
                 <li ><a href="/?route=logout">Logout</a></li>
-                <li class="last"><a class="last" href="?route=admin_add" class="last">Add Admin</a></li>
-                <li class="last"><a class="last"  class="last">Ви, <?php echo $_SESSION['admin_name'];?></a></li>
+                <li ><a href="?route=admin_add" >Add Admin</a></li>
+                <li class="last"><a class="last" >Ви, <?php echo $session->
+getSession('admin_name'); ?></a></li>
 			</ul>
 		</div>
 	</div>

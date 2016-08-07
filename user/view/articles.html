@@ -1,12 +1,11 @@
-
 <div class="post">
-    <p class="meta"><span class="date"><?php echo date("d.m.y", $row['pub_date']); ?></span>
-    <?php echo date("H:i", $row['pub_date']); ?> 
-    Posted by <a href="#"><?php echo $row['name']; ?></a></p>
+    <p class="meta"><span class="date"><?php echo date("d.m.y", $row->getDate()); ?></span>
+    <?php echo date("H:i", $row->getDate()); ?> 
+    Posted by <a href="#"><?php echo $row->getUserName(); ?></a></p>
     <h2 class="title">
-    <a href="/?id=<?php echo $row['id']; ?>"><?php echo $row['title']; ?></a>
+    <a href="/?id=<?php echo $row->getID(); ?>"><?php echo $row->getTitle(); ?></a>
     </h2>
         <div class="entry">
-            <p><?php echo $row['pub_text'] ?></p>
+            <p><?php echo $row->getText(); ?></p>
         </div>
 </div>
