@@ -8,7 +8,4 @@ include_once __dir__ . '/view/top-content.html';
 
 include_once __dir__ . '/view/404.html';
 
-include_once __dir__ . '/view/bottom-content.html';
-
-include_once __dir__ . '/view/footer.html';
 ?>

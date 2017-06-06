@@ -7,7 +7,7 @@ class Article
     private $date;
     private $user_name;
 
-    function __construct($id, $title, $pub_text, $pub_date, $user_name)
+    public function __construct($id, $title, $pub_text, $pub_date, $user_name)
     {
         $this->id = $id;
         $this->title = $title;
@@ -15,23 +15,23 @@ class Article
         $this->date = $pub_date;
         $this->user_name = $user_name;
     }
-    function getID(){
+    public function getID(){
         return $this->id;
     }
-    function getTitle(){
+    public function getTitle(){
         return $this->title;
     }
-    function getText(){
+    public function getText(){
         return $this->text;
     }
-    function getDate(){
+    public function getDate(){
         return $this->date;
     }
-    function getUserName(){
+    public function getUserName(){
         return $this->user_name;
     }
     
-    function getAllInfoArticle()
+    public function getAllInfoArticle()
     {
         $article = array();
         $article['id'] = $this->id;
@@ -42,4 +42,3 @@ class Article
         return $article;
     }
 }
-?>

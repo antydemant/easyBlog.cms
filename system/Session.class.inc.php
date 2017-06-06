@@ -2,16 +2,12 @@
 class Session
 {
 
-    protected $life = 3600;
+    protected $life = 3600; // default lifetime
     protected $data = array();
 
     public function __construct($life = '')
     {
-        if ($life != '') {
-
-            $this->life = $life;
-
-        }
+        if ($life != '') $this->life = $life;
 
         ini_set('session.use_cookies', 1);
         ini_set('session.use_only_cookies', 1);
@@ -40,7 +36,4 @@ class Session
     {
         unset($_SESSION[$key]);
     }
-
-
 }
-?>

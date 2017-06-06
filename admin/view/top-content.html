@@ -14,9 +14,11 @@
 		<div id="menu">
 			<ul>
 				<li class="current_page_item"><a href="/index.php">Blog</a></li>
-				<li ><a href="/?route=admin" >Admin</a></li>
+				<li ><a href="/?route=admin" >Panel</a></li>
                 <li ><a href="/?route=logout">Logout</a></li>
+                <?php if($MySQL->getAdmin($session->getSession('admin_login'))['role'] == 1) { ?>
                 <li ><a href="?route=admin_add" >Add Admin</a></li>
+                <?php } ?>
                 <li class="last"><a class="last" >Ви, <?php echo $session->
 getSession('admin_name'); ?></a></li>
 			</ul>
@@ -32,7 +34,9 @@ getSession('admin_name'); ?></a></li>
 <hr />
 <!-- end #logo -->
 <div id="page">
-<h2 align="center"><a href="admin.php?route=add">Створити публікацію</a> </h2>
+    <?php if($MySQL->getAdmin($session->getSession('admin_login'))['role'] == 1) { ?>
+        <h2 align="center"><a href="admin.php?route=add">Створити публікацію</a> </h2>
+    <?php } ?>
 	<div id="page-bgtop">
 		<!-- start #content -->
         

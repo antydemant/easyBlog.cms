@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="comment">
+    <div class="comment__image__wrapper">
+        <div class="comment_image ">
+            <img src="/user/view/images/user.png" width="50px" height="50px">
+        </div>
+    </div>
+    <div class="comment__content__wrapper">
+        <div class="comment__username">
+            User: <?php echo $comment->getUserName(); ?>
+        </div>
+        <div class="comment__text">
+            <?php echo $comment->getText(); ?>
+        </div>
+    </div>
+</div>

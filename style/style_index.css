@@ -448,3 +448,35 @@ hr { display: none; }
 
 #footer a {
 }
+
+.post {
+    border-bottom: 1px solid #000000;
+}
+
+.comment {
+	padding: 15px 0 15px 20px;
+    display: flex;
+}
+.comment__text {
+    padding: 15px 0 15px 20px;
+    display: flex;
+}
+.add_comment {
+    padding: 50px 0 0 20px;
+}
+
+.add_comment__textarea {
+	height: 100px;
+	width: 565px;
+}
+
+.add_comment__push_button {
+    padding: 10px 0 0 0;
+}
+
+.add_comment {
+    border-top: 1px solid #000000;
+}
+.add_comment__info {
+    font-size: 20px;
+}

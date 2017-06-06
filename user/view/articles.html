@@ -6,6 +6,6 @@
     <a href="/?id=<?php echo $row->getID(); ?>"><?php echo $row->getTitle(); ?></a>
     </h2>
         <div class="entry">
-            <p><?php echo $row->getText(); ?></p>
+            <p><?php echo mb_substr($row->getText(),0,500); ?>...</p>
         </div>
 </div>

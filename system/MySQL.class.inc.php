@@ -90,6 +90,7 @@ class MySQL
     public function getArticles($pagination = null, $id = null)
     {
         $articles = null;
+        $sql = null;
         if ($this->connectBase() !== false) {
             if ($pagination === 'all') {
                 $sql = "SELECT n.id, n.title, n.pub_date, n.pub_text, u.name FROM news n INNER JOIN users u ON u.id = n.user_id
@@ -103,11 +104,11 @@ class MySQL
                 $sql = "SELECT n.id, n.title, n.pub_date, n.pub_text, u.name FROM news n INNER JOIN users u ON u.id = n.user_id
                         WHERE n.id=" . (int)$id;
             }
+
             if ($result = $this->db->query($sql)) {
                 $this->db->close();
                 while ($row = $result->fetch_assoc()) {
-                    $article = new Article($row['id'], $row['title'], $row['pub_text'], $row['pub_date'],
-                        $row['name']);
+                    $article = new Article($row['id'], $row['title'], $row['pub_text'], $row['pub_date'], $row['name']);
                     $articles[] = $article;
                     unset($article);
                 }
@@ -121,11 +122,37 @@ class MySQL
         }
     }
 
-    public function addAdmin($name, $login, $password)
+    public function getComments($id = null)
+    {
+        $comments = null;
+        $sql = null;
+        if ($this->connectBase() !== false) {
+            $sql = "SELECT c.id, c.pub_date, c.text, u.name  FROM comments c
+                    INNER JOIN users u ON u.id = c.user_id WHERE c.news_id = " . (int)$id;
+
+            if ($result = $this->db->query($sql)) {
+                $this->db->close();
+                while ($row = $result->fetch_assoc()) {
+                    $comment = new Comment($row['id'], $row['text'], $row['pub_date'], $row['name']);
+                    $comments[] = $comment;
+                    unset($comment);
+                }
+                return $comments;
+            } else {
+                $this->db->close();
+                return $comments;
+            }
+        } else {
+            return $comments;
+        }
+    }
+
+    public function addComment($text,$user_id,$datetime, $news_id)
     {
         if ($this->connectBase() !== false) {
-            $sql = "INSERT INTO users (name, login, password) 
-                    VALUES('$name', '$login', '$password')";
+            $sql = "INSERT INTO comments (text, user_id, pub_date, news_id) 
+                    VALUES('$text', " .  $user_id . ", '$datetime', " . $news_id . " )";
+
             if ($this->db->query($sql)) {
                 $this->db->close();
                 return true;
@@ -138,10 +165,28 @@ class MySQL
         }
     }
 
+    public function addAdmin($name, $login, $password, $role)
+    {
+        if ($this->connectBase() !== false) {
+            $sql = "INSERT INTO users (name, login, password, role) 
+                    VALUES('$name', '$login', '$password', $role)";
+            if ($this->db->query($sql)) {
+                $this->db->close();
+                return true;
+            } else {
+                $this->db->close();
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+
     public function getAdmin($login)
     {
         if ($this->connectBase() !== false) {
-            $sql = "SELECT id, name, login, password FROM users
+            $sql = "SELECT id, name, login, password, role FROM users
                     WHERE login='$login'";
             if ($result = $this->db->query($sql)) {
                 return $result->fetch_assoc();

@@ -4,10 +4,15 @@
     include_once __DIR__ . '/view/top-content.html';
     
     $articles = $MySQL->getArticles(null,$_GET['id']);
-    
-    foreach($articles as $row) {
-        include __DIR__ . '/view/article.html';
+
+    if(!empty($articles)) {
+        foreach($articles as $row) {
+            include __DIR__ . '/view/article.html';
+        }
     }
+
+        
+    include_once __DIR__ . '/comments.php';
 
     include_once __DIR__ . '/view/bottom-content.html';
     

@@ -5,11 +5,11 @@
     header("Status: 404 Not Found");
 
     include_once __DIR__ . '/view/top-content.html';
-    
+
     include_once __DIR__ . '/view/404.html';
-    
+
     include_once __DIR__ . '/view/bottom-content.html';
-    
+
     include_once __DIR__ . '/sidebar.php';
-    
+
     include_once __DIR__ . '/view/footer.html';

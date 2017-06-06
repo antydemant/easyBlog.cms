@@ -7,10 +7,12 @@
     </h2>
         <div class="entry">
             <p><?php echo $row->getText(); ?></p>
+            <?php if($MySQL->getAdmin($session->getSession('admin_login'))['role'] == 1) { ?>
             <p align="center" ><a href="admin.php?route=edit&id=<?php echo $row->
 getID(); ?>">Редагувати публікацію</a> </p>
             <p align="center" ><a href="admin.php?route=del&id=<?php echo $row->
 getID(); ?>">Видалити публікацію</a> </p>
+            <?php } ?>
         </div>
     
 </div>

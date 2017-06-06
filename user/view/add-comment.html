@@ -1,0 +1,28 @@
+<p style="color: #ff0000;padding-left: 30px;"><?php if(!is_null($comments_empty)) echo $comments_empty; ?></p>
+<?php
+
+    if($session->getSession('id')) {
+
+?>
+
+<form method="POST" action="/index.php?id=<?php echo (int)$_GET['id']; ?>">
+
+    <div class="add_comment">
+        <div class="add_comment__info">
+            <p style="color: #ff0000;"><?php if(!is_null($success)) echo $success; ?></p>
+            <p>Написати коментар</p>
+        </div>
+        <div class="add_comment__input">
+            <textarea class="add_comment__textarea" name="comment_text">Example ...</textarea>
+        </div>
+        <div class="add_comment__push_button">
+            <input type="submit" name="comment_submit" class="push_input" value="Коментнути">
+        </div>
+    </div>
+</form>
+
+<?php } else { ?>
+
+<p style="color: #ff0000;padding-left: 30px;">Коментування дозволено тільки авторизованим користувачам</p>
+
+<?php } ?>

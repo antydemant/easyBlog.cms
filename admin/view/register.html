@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+    <meta charset="utf-8">
+    <title>Вход easyBlog.CMS</title>
+    <link rel="stylesheet" type="text/css" href="/style/style.css" />
 </head>
 <body>
-$END$
-</body>
+<form id="slick-login" action="/admin/admin.php?route=register" method="post">
+    <p>Email </p><p id="green">
+    <?php if (isset($errors['admin_email'])) echo $errors['admin_email']; ?></p>
+    <input type="text" name="admin_email" class="placeholder" placeholder="email@email.com" />
+    <p>Name </p><p id="green">
+    <?php if (isset($errors['admin_name'])) echo $errors['admin_name']; ?></p>
+    <input type="text" name="admin_name" class="placeholder" placeholder="User" />
+    <p>Login </p><p id="green">
+    <?php if (isset($errors['admin_login'])) echo $errors['admin_login']; ?></p>
+    <input type="text" name="admin_login" class="placeholder" placeholder="User" />
+    <p>Password </p><p id="green">
+    <?php if (isset($errors['admin_password'])) echo $errors['admin_password']; ?></p>
+    <input type="password" name="admin_password" class="placeholder" placeholder="AutoPassWorD" />
+    <p>Re-Password </p><p id="green">
+    <?php if (isset($errors['admin_password_confirm'])) echo $errors['admin_password_confirm']; ?></p>
+    <input type="password" name="admin_password_confirm" class="placeholder" placeholder="AutoPassWorD" />
+    <input type="submit" value="Зарегистрироать">
+</form>
 </html>

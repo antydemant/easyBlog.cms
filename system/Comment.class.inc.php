@@ -7,7 +7,7 @@ class Comment
     private $date;
     private $user_name;
 
-    public function __construct($id, $username, $pub_text, $pub_date, $user_name)
+    public function __construct($id, $pub_text, $pub_date, $user_name)
     {
         $this->id = $id;
         $this->text = $pub_text;
